@@ -6,13 +6,15 @@
 /*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 11:47:32 by atabarea          #+#    #+#             */
-/*   Updated: 2026/04/07 10:38:48 by atabarea         ###   ########.fr       */
+/*   Updated: 2026/04/07 13:00:37 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fixed.hpp"
 
 const int Fixed::_fractional_bits = 8;
+
+//Constructor and destructor functions:
 
 Fixed::Fixed(void)
 {
@@ -26,14 +28,27 @@ Fixed::Fixed(const Fixed& other)
 	*this = other;
 }
 
+Fixed::Fixed(const int val)
+{
+	std::cout << "Int constructor called" << std::endl;
+	this->_fixed_point = val << _fractional_bits;
+}
+
+Fixed::Fixed(const float val)
+{
+	std::cout << "Float constructor called" << std::endl;
+	this->_fixed_point = roundf(val * (1 << _fractional_bits));
+}
+
 Fixed::~Fixed(void)
 {
 	std::cout << "Destructor called" << std::endl;
 }
 
+//Class member functions:
+
 int Fixed::getRawBits(void) const
 {
-	std::cout << "getRawBits member function called" << std::endl;
 	return (this->_fixed_point);
 }
 
@@ -42,9 +57,27 @@ void Fixed::setRawBits(int const raw)
 	this->_fixed_point = raw;
 }
 
+int Fixed::toInt(void) const
+{
+	return (this->_fixed_point >> _fractional_bits);
+}
+
+float Fixed::toFloat(void) const
+{
+	return ((float)this->_fixed_point / (1 << _fractional_bits));
+}
+
+//Operator overload:
+
 Fixed& Fixed::operator=(const Fixed& other)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
 	this->_fixed_point = other.getRawBits();
 	return (*this);
+}
+
+std::ostream& operator<<(std::ostream& ostream, const Fixed& fixed)
+{
+	ostream << fixed.toFloat();
+	return (ostream);
 }
