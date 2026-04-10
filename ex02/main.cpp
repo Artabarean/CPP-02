@@ -6,7 +6,7 @@
 /*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/07 10:48:44 by atabarea          #+#    #+#             */
-/*   Updated: 2026/04/08 12:41:38 by atabarea         ###   ########.fr       */
+/*   Updated: 2026/04/10 11:24:46 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int main( void )
     std::cout << b << std::endl;
 
     std::cout << Fixed::max( a, b ) << std::endl;
+    std::cout << Fixed::min( a, b ) << std::endl;
 
     std::cout << "Comparison Operators" << std::endl;
     Fixed const c( 10 );
@@ -45,10 +46,10 @@ int main( void )
     Fixed const f( 4.2f );
 
     std::cout << "e: " << e << " | f: " << f << std::endl;
-    std::cout << "e + f : " << (e + f) << " (expected ~6.2)" << std::endl;
-    std::cout << "f - e : " << (f - e) << " (expected ~2.2)" << std::endl;
-    std::cout << "e * f : " << (e * f) << " (expected ~8.4)" << std::endl;
-    std::cout << "f / e : " << (f / e) << " (expected ~2.1)" << std::endl;
+    std::cout << "e + f : " << (e + f) << std::endl;
+    std::cout << "f - e : " << (f - e) << std::endl;
+    std::cout << "e * f : " << (e * f) << std::endl;
+    std::cout << "f / e : " << (f / e) << std::endl;
 
     std::cout << "Increment/Decrement Operators" << std::endl;
     Fixed g( 1 );

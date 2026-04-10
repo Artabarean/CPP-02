@@ -6,7 +6,7 @@
 /*   By: atabarea <atabarea@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/31 11:21:53 by atabarea          #+#    #+#             */
-/*   Updated: 2026/04/07 10:33:18 by atabarea         ###   ########.fr       */
+/*   Updated: 2026/04/10 10:37:39 by atabarea         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Fixed
 		Fixed(const Fixed&);
 		~Fixed(void);
 		int getRawBits(void) const;
-		void setRawBits(int const);
+		void setRawBits(int const raw);
 		Fixed& operator=(const Fixed&);
 	private:
 		int _fixed_point;
